@@ -5,9 +5,13 @@ import com.nareksarkisyan.spring.mvc_hibernate_aop.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-     public List<Employee> getAllEmployees();
-     public void saveEmployee(Employee employee);
-     public Employee getEmployee(int id);
 
-     public void deleteEmployee(Employee employee);
+     List<Employee> getAllEmployees();
+
+     void saveEmployee(Employee employee);
+
+     Employee getEmployee(int id);
+
+     void deleteEmployee(Employee employee);
+
 }

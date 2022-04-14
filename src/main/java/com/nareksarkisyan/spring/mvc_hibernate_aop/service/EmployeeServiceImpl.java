@@ -1,21 +1,21 @@
 package com.nareksarkisyan.spring.mvc_hibernate_aop.service;
 
-import com.nareksarkisyan.spring.mvc_hibernate_aop.dao.EmployeeDAO;
+import com.nareksarkisyan.spring.mvc_hibernate_aop.dao.EmployeeDao;
 import com.nareksarkisyan.spring.mvc_hibernate_aop.entity.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+@RequiredArgsConstructor
+public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
-    private EmployeeDAO employeeDAO;
+    private final EmployeeDao employeeDAO;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Employee> getAllEmployees() {
         return employeeDAO.getAllEmployees();
     }
@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Employee getEmployee(int id) {
         return employeeDAO.getEmployee(id);
     }
