@@ -1,9 +1,15 @@
 package com.nareksarkisyan.spring.mvc_hibernate_aop.entity;
 
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+//TODO название таблиц не делают во множественном числе, это плохой тон
+// название должно быть employee, company, etc. а не employees, companies
 @Table(name = "employees")
+@Getter
+@Setter
 public class Employee {
 
     @Id
@@ -23,53 +29,4 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
-    public Employee() {
-    }
-
-    public Employee(String name, String surname, String department, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.department = department;
-        this.salary = salary;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
 }
